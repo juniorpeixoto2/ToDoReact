@@ -4,7 +4,8 @@
 
 .cardMain {
     @apply bg-white rounded-xl p-5;
-    height: 78vh;
+    min-height: 78vh;
+    margin-bottom: 30px;
 }
 
 .card {

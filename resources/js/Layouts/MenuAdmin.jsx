@@ -12,11 +12,8 @@ function MenuAdmin() {
                 </NavLink>
             </li>
             <li>
-                <NavLink
-                    href={route("admin")}
-                    active={route().current("admin")}
-                >
-                    Home
+                <NavLink href={route("todo")} active={route().current("todo")}>
+                    Tarefas
                 </NavLink>
             </li>
             <li>

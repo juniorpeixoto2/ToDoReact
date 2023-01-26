@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TodoController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -15,22 +16,20 @@ Route::get('/', function () {
 });
 
 Route::prefix('/')->middleware(['auth', 'verified'])->group(function () {
-    Route::get('/admin', function () {
-        return Inertia::render('admin');
-    })->name('admin');
+    Route::get('/dashboard', function () {
+        return Inertia::render('Dashboard');
+    })->name('dashboard');
 
     Route::get('/about', function () {
         return Inertia::render('About');
-    })->middleware(['auth', 'verified'])->name('about');
+    })->name('about');
 
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->middleware(['auth', 'verified'])->name('dashboard');
+    Route::get('/todo', [TodoController::class, 'index'])->name('todo');
+    Route::post('/todo', [TodoController::class, 'store'])->name('todo.store');
+    Route::post('/todo/delete', [TodoController::class, 'delete'])->name('todo.delete');
 
-    Route::middleware('auth')->group(function () {
-        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-        Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    });
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 require __DIR__ . '/auth.php';

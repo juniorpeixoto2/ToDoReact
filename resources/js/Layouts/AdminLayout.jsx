@@ -46,7 +46,7 @@ export default function AdminLayout({ children }) {
                                             <input
                                                 type="text"
                                                 placeholder="Search"
-                                                className="input input-bordered"
+                                                className="rounded"
                                             />
                                         </div>
                                         <div className="dropdown dropdown-end ">

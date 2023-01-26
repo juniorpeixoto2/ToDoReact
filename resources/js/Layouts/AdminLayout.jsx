@@ -4,6 +4,7 @@ import "../../css/admin/soft-ui-dashboard-tailwind.css?v=1.0.4";
 import "../../css/admin/nucleo-icons.css";
 import "../../css/admin/nucleo-svg.css";
 import NavLink from "@/Components/NavLink";
+import MenuAdmin from "./MenuAdmin";
 
 export default function AdminLayout({ children }) {
     return (
@@ -98,44 +99,10 @@ export default function AdminLayout({ children }) {
                         <div className="menu w-60 bg-gradient-to-r from-slate-800 to-slate-600 ">
                             <div className="bg-blue-600 h-16 flex justify-center items-center border-r border-r-slate-500">
                                 <div className="normal-case text-white text-xl font-bold ">
-                                    Todo LaViTaDi
+                                    ToDo
                                 </div>
                             </div>
-                            <ul className="mt-5">
-                                <li>
-                                    <NavLink
-                                        href={route("dashboard")}
-                                        active={route().current("dashboard")}
-                                    >
-                                        Home
-                                    </NavLink>
-                                </li>
-                                <li>
-                                    <NavLink
-                                        href={route("admin")}
-                                        active={route().current("admin")}
-                                    >
-                                        Home
-                                    </NavLink>
-                                </li>
-                                <li>
-                                    <NavLink
-                                        href={route("teste")}
-                                        active={route().current("teste")}
-                                    >
-                                        Teste
-                                    </NavLink>
-                                </li>
-                                <li>
-                                    <NavLink
-                                        href={route("logout")}
-                                        active={route().current("logout")}
-                                        method="post"
-                                    >
-                                        Sair
-                                    </NavLink>
-                                </li>
-                            </ul>
+                            <MenuAdmin />
                         </div>
                     </div>
                 </div>
